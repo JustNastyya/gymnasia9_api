@@ -1,1 +1,1 @@
-web: gunicorn main:gymnasia9-api --log-file - --log-level debug
+web: gunicorn app:app --log-file - --log-level debug
