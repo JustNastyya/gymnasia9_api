@@ -1,1 +1,1 @@
-run: python main.py $PORT
+web: gunicorn main:app --log-file - --log-level debug
