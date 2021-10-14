@@ -2,10 +2,12 @@ from datetime import timedelta
 import openpyxl
 from openpyxl.reader import excel
 from data.consts import days_of_the_week
+import os
 
 FIRST_SMENA_FILE = 'db\\1_smena_schedule.xlsx'
 SECOND_SMENA_FILE = 'db\\2_smena_schedule.xlsx'
 LESSONS_EVERY_DAY = 7
+PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 class ScheduleParser:
@@ -16,7 +18,8 @@ class ScheduleParser:
         self._table_to_dict_schedule()
 
     def _excel_to_list(self):
-        wb_obj = openpyxl.load_workbook(FIRST_SMENA_FILE)
+        static_root = os.path.join(PROJECT_ROOT, FIRST_SMENA_FILE)
+        wb_obj = openpyxl.load_workbook(static_root)
         
         sheet_obj = wb_obj.active
         max_col = sheet_obj.max_column
