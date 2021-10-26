@@ -93,6 +93,12 @@ def name_comparison(mod_name, book_name):
 
     if len(mod_book_name & mod_name) > 0:
         return True
+    
+    for one in mod_name:
+        for two in mod_book_name:
+            if one in two or two in one:
+                return True
+            
     return False
 
 
