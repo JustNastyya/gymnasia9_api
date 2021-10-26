@@ -14,6 +14,15 @@ api.add_resource(GetListOfClassesResource, '/api/classes_in_paralel')
 # get schedule for today for specific class
 api.add_resource(ScheduleResource, '/api/schedule/<clas>&<day>')
 
+# get list of literature categories
+api.add_resource(LibraryCategories, '/api/library/literature_categories')
+
+# match books by the name
+api.add_resource(BookByName, '/api/library/match_books/<name>')
+
+# get list of books in a category
+api.add_resource(BooksInCategory, '/api/library/books_in_category/<category>')
+
 
 def main():
     app.run()
